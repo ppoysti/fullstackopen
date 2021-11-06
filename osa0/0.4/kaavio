@@ -1,0 +1,33 @@
+note over selain:
+   selain lähettää lomakkeen datan palvelimelle
+end note
+
+selain->palvelin: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+
+note over palvelin:
+   palvelin käsittelee muutokset
+end note
+
+palvelin-->selain: uudelleenohjaus
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+palvelin-->selain: HTML-koodi
+
+note over selain:
+   selain renderöi sivurakenteen ja lähettää pyynnön ladata .css- ja .js-tiedostot
+end note
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+palvelin-->selain: main.css, main.js
+
+note over selain:
+   selain käsittelee css-tyylit ja ajaa js-koodin,
+   joka hakee data.jsonin GET-kutsulla
+end note
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+palvelin-->selain: .json-data
+
+note over selain:
+   js käsittelee saadun datan ja renderöi sen sivulle
+end note

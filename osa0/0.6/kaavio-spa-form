@@ -1,0 +1,7 @@
+note over selain:
+   js lisää lomakkeen datan notes-taulukkoon ja päivittää taulukon sivulle redrawNotes-funktion avulla 
+   sekä lähettää sen palvelimelle sendToServer-funktion avulla
+end note
+
+selain->palvelin: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+palvelin-->selain: 201 created
